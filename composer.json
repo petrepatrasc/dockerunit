@@ -1,0 +1,24 @@
+{
+  "name": "petrepatrasc/dockerunit",
+  "description": "A thin layer on top of PHPUnit that allows for running assertions on Docker containers",
+  "license": "MIT",
+  "type": "project",
+  "autoload": {
+    "psr-4": {
+      "": "src/"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "require": {
+    "symfony/yaml": "~2.7"
+  },
+  "require-dev": {
+    "kherge/box": "~2.6",
+    "phpunit/phpunit": "~4.8",
+    "php-mock/php-mock-phpunit": "^0.3"
+  },
+  "config": {
+    "bin-dir": "bin"
+  }
+}
