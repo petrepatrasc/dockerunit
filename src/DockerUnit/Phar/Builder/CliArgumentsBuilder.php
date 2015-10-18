@@ -129,4 +129,21 @@ class CliArgumentsBuilder implements BuilderInterface
 
         return $this;
     }
+
+    /**
+     * @param string $dockerFilePath
+     *
+     * @return $this
+     * @throws DockerUnitException
+     */
+    public function withDockerfile($dockerFilePath)
+    {
+        if (false === is_string($dockerFilePath)) {
+            throw new DockerUnitException("The invalid Dockerfile {$dockerFilePath} was passed to the CLI arguments buidler.");
+        }
+
+        $this->dockerFilePath = $dockerFilePath;
+
+        return $this;
+    }
 }

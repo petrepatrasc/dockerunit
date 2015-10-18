@@ -111,7 +111,41 @@ class CliArgumentsBuilderTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($testConfiguration, $argumentWrapper->getConfigurationFile());
     }
 
-//    public function testGivenAnInvalidDockerFileThenTheBuilderWillThrowAnException() {}
-//    public function testGivenAValidDockerFileThenTheBuilderWillGenerateAMatchingArgumentsWrapper() {}
-//    public function testGivenAllValidParametersThenTheBuilderWillGenerateAMatchingArgumentsWrapper() {}
+    public function testGivenAnInvalidDockerFileThenTheBuilderWillThrowAnException()
+    {
+        $dockerfile = self::INVALID_DOCKERFILE_PATH;
+
+        $this->setExpectedException(
+            'DockerUnit\Core\Exception\DockerUnitException',
+            "The invalid Dockerfile {$dockerfile} was passed to the CLI arguments buidler."
+        );
+
+        $this->builder->withDockerfile($dockerfile)
+            ->build();
+    }
+
+    public function testGivenAValidDockerFileThenTheBuilderWillGenerateAMatchingArgumentsWrapper()
+    {
+        $dockerfile = self::VALID_DOCKERFILE_PATH;
+
+        $argumentsWrapper = $this->builder->withDockerfile($dockerfile)
+            ->build();
+
+        $this->assertEquals($dockerfile, $argumentsWrapper->getDockerFilePath());
+    }
+
+    public function testGivenAllValidParametersThenTheBuilderWillGenerateAMatchingArgumentsWrapper()
+    {
+        $argumentsWrapper = $this->builder
+            ->withPharFile(self::VALID_PHAR_FILE)
+            ->withCommand(self::VALID_COMMAND)
+            ->withConfigurationFile(self::VALID_CONFIGURATION_FILE)
+            ->withDockerfile(self::VALID_DOCKERFILE_PATH)
+            ->build();
+
+        $this->assertEquals(self::VALID_PHAR_FILE, $argumentsWrapper->getPharFilePath());
+        $this->assertEquals(self::VALID_COMMAND, $argumentsWrapper->getCommand());
+        $this->assertEquals(self::VALID_CONFIGURATION_FILE, $argumentsWrapper->getConfigurationFile());
+        $this->assertEquals(self::VALID_DOCKERFILE_PATH, $argumentsWrapper->getDockerFilePath());
+    }
 }
