@@ -3,7 +3,7 @@ application:
 filter:
     excluded_paths:
         - phar/
-        - src/DockerUnit/Tests/*
+        - src/DockerUnit/Core/Tests/*
 checks:
     php:
         code_rating: true
