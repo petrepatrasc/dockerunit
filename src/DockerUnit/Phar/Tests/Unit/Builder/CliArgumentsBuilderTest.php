@@ -88,8 +88,29 @@ class CliArgumentsBuilderTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($testCommand, $argumentWrapper->getCommand());
     }
 
-//    public function testGivenAnInvalidConfigurationFileThenTheBuilderWillThrowAnException() {}
-//    public function testGivenAValidConfigurationFileThenTheBuilderWillGenerateAMatchingArgumentsWrapper() {}
+    public function testGivenAnInvalidConfigurationFileThenTheBuilderWillThrowAnException()
+    {
+        $configuration = self::INVALID_CONFIGURATION_FILE;
+
+        $this->setExpectedException(
+            'DockerUnit\Core\Exception\DockerUnitException',
+            "The invalid configuration file {$configuration} was passed to the CLI arguments buidler."
+        );
+
+        $this->builder->withConfigurationFile($configuration)
+            ->build();
+    }
+
+    public function testGivenAValidConfigurationFileThenTheBuilderWillGenerateAMatchingArgumentsWrapper()
+    {
+        $testConfiguration = self::VALID_CONFIGURATION_FILE;
+
+        $argumentWrapper = $this->builder->withConfigurationFile($testConfiguration)
+            ->build();
+
+        $this->assertEquals($testConfiguration, $argumentWrapper->getConfigurationFile());
+    }
+
 //    public function testGivenAnInvalidDockerFileThenTheBuilderWillThrowAnException() {}
 //    public function testGivenAValidDockerFileThenTheBuilderWillGenerateAMatchingArgumentsWrapper() {}
 //    public function testGivenAllValidParametersThenTheBuilderWillGenerateAMatchingArgumentsWrapper() {}

@@ -96,6 +96,12 @@ class CliArgumentsBuilder implements BuilderInterface
         return $this;
     }
 
+    /**
+     * @param string $command
+     *
+     * @return $this
+     * @throws DockerUnitException
+     */
     public function withCommand($command)
     {
         if (false === is_string($command)) {
@@ -103,6 +109,23 @@ class CliArgumentsBuilder implements BuilderInterface
         }
 
         $this->command = $command;
+
+        return $this;
+    }
+
+    /**
+     * @param string $file
+     *
+     * @return $this
+     * @throws DockerUnitException
+     */
+    public function withConfigurationFile($file)
+    {
+        if (false === is_string($file)) {
+            throw new DockerUnitException("The invalid configuration file {$file} was passed to the CLI arguments buidler.");
+        }
+
+        $this->configurationFile = $file;
 
         return $this;
     }
