@@ -1,0 +1,5 @@
+{
+  "directories": ["src"],
+  "output": "phar/dockerunit.phar",
+  "stub": true
+}
