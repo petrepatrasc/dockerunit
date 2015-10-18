@@ -40,6 +40,11 @@ class CliArgumentsBuilderTest extends \PHPUnit_Framework_TestCase
 
         $this->assertNotNull($argumentWrapper, 'The build method did not return anything');
         $this->assertTrue($argumentWrapper instanceof CliArguments, 'The build method should have returned a new instance of CLI arguments');
+
+        $this->assertEquals(CliArgumentsBuilder::DEFAULT_PHAR_FILE, $argumentWrapper->getPharFilePath());
+        $this->assertEquals(CliArgumentsBuilder::DEFAULT_COMMAND, $argumentWrapper->getCommand());
+        $this->assertEquals(CliArgumentsBuilder::DEFAULT_CONFIGURATION_FILE, $argumentWrapper->getConfigurationFile());
+        $this->assertEquals(CliArgumentsBuilder::DEFAULT_DOCKERFILE_PATH, $argumentWrapper->getDockerFilePath());
     }
 
     public function testGivenAnInvalidPharFileThenTheBuilderWillThrowAnException()
