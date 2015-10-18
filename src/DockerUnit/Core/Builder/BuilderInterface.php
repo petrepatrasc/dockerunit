@@ -1,7 +1,7 @@
 <?php
 
 
-namespace DockerUnit\Builder;
+namespace DockerUnit\Core\Builder;
 
 /**
  * Defines interaction with builder services.

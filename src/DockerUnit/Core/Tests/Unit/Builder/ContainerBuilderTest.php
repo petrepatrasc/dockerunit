@@ -1,11 +1,12 @@
 <?php
 
 
-namespace DockerUnit\Tests\Unit\Builder;
+namespace DockerUnit\Core\Tests\Unit\Builder;
 
 
-use DockerUnit\Builder\ContainerBuilder;
-use DockerUnit\Entity\Container;
+use DockerUnit\Core\Builder\ContainerBuilder;
+use DockerUnit\Core\Entity\Container;
+use PHPUnit_Framework_TestCase;
 
 class ContainerBuilderTest extends \PHPUnit_Framework_TestCase
 {
@@ -15,7 +16,7 @@ class ContainerBuilderTest extends \PHPUnit_Framework_TestCase
     const VALID_NAME = 'somevendor_somepackage';
 
     /**
-     * @var ContainerBuilder
+     * @var \DockerUnit\Core\Builder\ContainerBuilder
      */
     protected $builder;
 
@@ -45,7 +46,7 @@ class ContainerBuilderTest extends \PHPUnit_Framework_TestCase
         $testedId = self::INVALID_ID;
 
         $this->setExpectedException(
-            'DockerUnit\Exception\DockerUnitException',
+            'DockerUnit\Core\Exception\DockerUnitException',
             "The invalid ID {$testedId} was passed to the container buidler."
         );
 

@@ -1,10 +1,11 @@
 <?php
 
 
-namespace DockerUnit\Tests\Unit\Runner;
+namespace DockerUnit\Core\Tests\Unit\Runner;
 
 
-use DockerUnit\Runner\ShellCommandRunner;
+use DockerUnit\Core\Runner\ShellCommandRunner;
+use PHPUnit_Framework_TestCase;
 
 class ShellCommandRunnerTest extends \PHPUnit_Framework_TestCase
 {
@@ -23,7 +24,7 @@ class ShellCommandRunnerTest extends \PHPUnit_Framework_TestCase
     {
         parent::setUp();
 
-        $this->runner = new ShellCommandRunner();
+        $this->runner = new \DockerUnit\Core\Runner\ShellCommandRunner();
     }
 
     public function testGivenAShellOutputWithAnEmptyNewLineAtTheEndThenItCanBeRemoved()

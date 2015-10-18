@@ -1,7 +1,7 @@
 <?php
 
 
-namespace DockerUnit\Exception;
+namespace DockerUnit\Core\Exception;
 
 /**
  * Base exception class for the DockerUnit package.

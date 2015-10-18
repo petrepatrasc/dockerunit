@@ -1,7 +1,7 @@
 <?php
 
 
-namespace DockerUnit\Runner;
+namespace DockerUnit\Core\Runner;
 
 /**
  * Manages the interactions available for command runners.

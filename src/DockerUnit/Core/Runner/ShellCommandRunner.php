@@ -1,7 +1,8 @@
 <?php
 
 
-namespace DockerUnit\Runner;
+namespace DockerUnit\Core\Runner;
+use DockerUnit\Core\Runner\CommandRunnerInterface;
 
 /**
  * Runs shell commands.

@@ -1,10 +1,11 @@
 <?php
 
 
-namespace DockerUnit\Builder;
+namespace DockerUnit\Core\Builder;
 
-use DockerUnit\Entity\Container;
-use DockerUnit\Exception\DockerUnitException;
+use DockerUnit\Core\Builder\BuilderInterface;
+use DockerUnit\Core\Entity\Container;
+use DockerUnit\Core\Exception\DockerUnitException;
 
 /**
  * Handles the composition of container entities.

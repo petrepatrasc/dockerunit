@@ -1,7 +1,7 @@
 <?php
 
 
-namespace DockerUnit\Bridge;
+namespace DockerUnit\Core\Bridge;
 
 
 class DockerBridge

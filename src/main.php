@@ -4,7 +4,7 @@
 
 namespace DockerUnit\Autoload;
 
-use DockerUnit\Builder\ContainerBuilder;
+use DockerUnit\Core\Builder\ContainerBuilder;
 
 require_once 'vendor/autoload.php';
 

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace DockerUnit\Entity;
+namespace DockerUnit\Core\Entity;
 
 
 class Container
