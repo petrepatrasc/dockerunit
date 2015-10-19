@@ -1,0 +1,3 @@
+services:
+    dockerunit.phar.cli_arguments.builder:
+        class: DockerUnit\Phar\Builder\CliArgumentsBuilder

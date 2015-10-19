@@ -4,10 +4,17 @@
 namespace DockerUnit\Phar\Tests\Unit\Builder;
 
 
+use DockerUnit\Core\Tests\Unit\AbstractUnitTestCase;
 use DockerUnit\Phar\Builder\CliArgumentsBuilder;
 use DockerUnit\Phar\Entity\CliArguments;
 
-class CliArgumentsBuilderTest extends \PHPUnit_Framework_TestCase
+/**
+ * Unit tests for the CLI arguments builder.
+ *
+ * @package DockerUnit\Phar\Tests\Unit\Builder
+ * @author  Petre Pătrașc <petre@dreamlabs.ro>
+ */
+class CliArgumentsBuilderTest extends AbstractUnitTestCase
 {
     const VALID_PHAR_FILE = 'build/dockerunit.phar';
     const VALID_COMMAND = 'lint';

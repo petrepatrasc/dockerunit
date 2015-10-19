@@ -4,7 +4,7 @@
 namespace DockerUnit\Core\Builder;
 
 use DockerUnit\Core\Builder\BuilderInterface;
-use DockerUnit\Core\Entity\Container;
+use DockerUnit\Core\Entity\DockerContainer;
 use DockerUnit\Core\Exception\DockerUnitException;
 
 /**
@@ -13,7 +13,7 @@ use DockerUnit\Core\Exception\DockerUnitException;
  * @package DockerUnit\Builder
  * @author  Petre Pătrașc <petre@dreamlabs.ro>
  */
-class ContainerBuilder implements BuilderInterface
+class DockerContainerBuilder implements BuilderInterface
 {
     const DEFAULT_ID = 'container_default_id';
     const DEFAULT_NAME = 'container_default_name';
@@ -29,7 +29,7 @@ class ContainerBuilder implements BuilderInterface
     protected $name;
 
     /**
-     * ContainerBuilder constructor.
+     * DockerContainerBuilder constructor.
      */
     public function __construct()
     {
@@ -46,11 +46,11 @@ class ContainerBuilder implements BuilderInterface
     }
 
     /**
-     * @return Container
+     * @return DockerContainer
      */
     public function build()
     {
-        $container = new Container(
+        $container = new DockerContainer(
             $this->id,
             $this->name
         );

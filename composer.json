@@ -11,7 +11,9 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "require": {
-    "symfony/yaml": "~2.7"
+    "symfony/yaml": "~2.7",
+    "symfony/dependency-injection": "~2.7",
+    "symfony/config": "~2.7"
   },
   "require-dev": {
     "kherge/box": "~2.6",

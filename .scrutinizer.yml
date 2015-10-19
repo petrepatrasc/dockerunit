@@ -4,6 +4,7 @@ filter:
     excluded_paths:
         - phar/
         - src/DockerUnit/Core/Tests/*
+        - src/DockerUnit/Phar/Tests/*
 checks:
     php:
         code_rating: true
