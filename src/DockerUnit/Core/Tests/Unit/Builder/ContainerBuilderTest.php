@@ -6,9 +6,10 @@ namespace DockerUnit\Core\Tests\Unit\Builder;
 
 use DockerUnit\Core\Builder\ContainerBuilder;
 use DockerUnit\Core\Entity\Container;
+use DockerUnit\Core\Tests\Unit\AbstractUnitTestCase;
 use PHPUnit_Framework_TestCase;
 
-class ContainerBuilderTest extends \PHPUnit_Framework_TestCase
+class ContainerBuilderTest extends AbstractUnitTestCase
 {
     const INVALID_ID = 123456789;
     const VALID_ID = '7cf8c69551aaf7b219976b4222205db76c52793c23073446feb28e7975b76e91';

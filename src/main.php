@@ -1,8 +1,7 @@
 #!/usr/bin/env php
 
 <?php
-
-namespace DockerUnit\Autoload;
+namespace DockerUnit\Setup;
 
 use DockerUnit\Core\Builder\ContainerBuilder;
 
