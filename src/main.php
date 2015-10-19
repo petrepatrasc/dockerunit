@@ -3,10 +3,14 @@
 <?php
 namespace DockerUnit\Setup;
 
-use DockerUnit\Core\Builder\ContainerBuilder;
+use DockerUnit\Core\DependencyInjection\ContainerSingleton;
 
 require_once 'vendor/autoload.php';
 
-$arguments = $argv;
+$container = ContainerSingleton::getInstance();
 
-var_dump($arguments);
+$cliArguments = $container->get('dockerunit.phar.cli_arguments.builder')
+    ->withPharFile('sample')
+    ->build();
+
+var_dump($cliArguments);

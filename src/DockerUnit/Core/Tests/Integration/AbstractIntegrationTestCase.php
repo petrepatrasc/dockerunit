@@ -4,11 +4,9 @@
 namespace DockerUnit\Core\Tests\Integration;
 
 
+use DockerUnit\Core\DependencyInjection\ContainerSingleton;
 use PHPUnit_Framework_TestCase;
-use Symfony\Component\Config\FileLocator;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
 /**
  * Governs the testing of flows, and features usage of the DI mechanism.
@@ -30,13 +28,6 @@ abstract class AbstractIntegrationTestCase extends \PHPUnit_Framework_TestCase
     {
         parent::setUp();
 
-        $this->container         = new ContainerBuilder();
-        $packageWrapperDirectory = __DIR__ . '/../../..';
-
-        $loader = new YamlFileLoader($this->container, new FileLocator($packageWrapperDirectory . '/Core/Resources/config'));
-        $loader->load('services.yml');
-
-        $loader = new YamlFileLoader($this->container, new FileLocator($packageWrapperDirectory . '/Phar/Resources/config'));
-        $loader->load('services.yml');
+        $this->container = ContainerSingleton::getInstance();
     }
 }
