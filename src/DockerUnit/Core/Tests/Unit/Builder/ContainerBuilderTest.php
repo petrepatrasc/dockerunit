@@ -4,8 +4,8 @@
 namespace DockerUnit\Core\Tests\Unit\Builder;
 
 
-use DockerUnit\Core\Builder\ContainerBuilder;
-use DockerUnit\Core\Entity\Container;
+use DockerUnit\Core\Builder\DockerContainerBuilder;
+use DockerUnit\Core\Entity\DockerContainer;
 use DockerUnit\Core\Tests\Unit\AbstractUnitTestCase;
 use PHPUnit_Framework_TestCase;
 
@@ -17,7 +17,7 @@ class ContainerBuilderTest extends AbstractUnitTestCase
     const VALID_NAME = 'somevendor_somepackage';
 
     /**
-     * @var \DockerUnit\Core\Builder\ContainerBuilder
+     * @var \DockerUnit\Core\Builder\DockerContainerBuilder
      */
     protected $builder;
 
@@ -28,7 +28,7 @@ class ContainerBuilderTest extends AbstractUnitTestCase
     {
         parent::setUp();
 
-        $this->builder = new ContainerBuilder();
+        $this->builder = new DockerContainerBuilder();
     }
 
     public function testGivenNoSpecificParametersThenTheBuilderWillGenerateAContainerWithSomeDefaultValues()
@@ -36,10 +36,10 @@ class ContainerBuilderTest extends AbstractUnitTestCase
         $container = $this->builder->build();
 
         $this->assertNotNull($container, 'The builder did not generate anything. Must be an issue in the way the generated instance is returned');
-        $this->assertTrue($container instanceof Container, 'The builder generated data should be a Container');
+        $this->assertTrue($container instanceof DockerContainer, 'The builder generated data should be a DockerContainer');
 
-        $this->assertEquals(ContainerBuilder::DEFAULT_ID, $container->getId(), 'The container should have a default ID');
-        $this->assertEquals(ContainerBuilder::DEFAULT_NAME, $container->getName(), 'The container should have a default name');
+        $this->assertEquals(DockerContainerBuilder::DEFAULT_ID, $container->getId(), 'The container should have a default ID');
+        $this->assertEquals(DockerContainerBuilder::DEFAULT_NAME, $container->getName(), 'The container should have a default name');
     }
 
     public function testGivenAnInvalidIdThenTheBuilderWillThrowAnException()

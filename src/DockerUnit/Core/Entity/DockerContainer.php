@@ -4,7 +4,7 @@
 namespace DockerUnit\Core\Entity;
 
 
-class Container
+class DockerContainer
 {
     /**
      * @var string
@@ -17,7 +17,7 @@ class Container
     protected $name;
 
     /**
-     * Container constructor.
+     * DockerContainer constructor.
      *
      * @param string $id
      * @param string $name
